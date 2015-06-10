@@ -27,3 +27,10 @@ en:
   settings: "Setting"
   profile: "Profile"
   logout: "Log out"
+  skill:
+    create: "Create new skill"
+    success: "Added new skill"
+  show_error: "The form contains"
+  admin:
+    name: "Admin"
+    title: "Admin Management"
