@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  site_name: "Member Management System"
+  welcome: "Welcome to Member Management System"
+  home: "Home"
+  help: "Help"
+  settings: "Setting"
+  profile: "Profile"
+  logout: "Log out"
