@@ -1,0 +1,5 @@
+<li class="list-group-item">
+  <%= link_to skill.name, admin_skill_path(skill) %>
+  |<%= link_to t("skill.edit_link"), edit_admin_skill_path(skill) %>
+  |<%= link_to t("skill.delete_link"), admin_skill_path(skill), method: :delete, data: {confirm: t "skill.confirm"} %>
+</li>
