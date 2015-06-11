@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  ordinal: "Order"
   site_name: "Member Management System"
   welcome: "Welcome to Member Management System"
   home: "Home"
@@ -52,3 +53,8 @@ en:
   project:
     empty: "Not have project."
     status: "Status"
+  team:
+    name: "Team name"
+    members_count: "Members"
+    leader: "Leader"
+    empty: "Not have team."
