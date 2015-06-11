@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "ordinal" %></th>
+      <th><%= t "user.name" %></th>
+      <th><%= t "user.position" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @team.members.empty? %>
+      <tr>
+        <td><%= t "team.empty_members" %></td>
+      </tr>
+    <% else %>
+      <% @members.each_with_index do |member, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= member.name %></td>
+          <td><%= member.positions.last %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @members %>

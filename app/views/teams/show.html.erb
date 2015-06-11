@@ -1,0 +1,19 @@
+<div class="col-md-12">
+  <div id="team-info-navigation" class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="<%= get_navigation_class Settings.team.basic, params[:page_name] %>">
+        <%= link_to t("team.basic"), team_path(@team) %>
+      </li>
+      <li class="<%= get_navigation_class Settings.team.members, params[:page_name] %>">
+        <%= link_to t("team.members"), team_path(@team, page_name: Settings.team.members) %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <% if params[:page_name] == Settings.team.members %>
+      <%= render "members" %>
+    <% else %>
+      <%= render "basic" %>
+    <% end %>
+  </div>
+</div>
