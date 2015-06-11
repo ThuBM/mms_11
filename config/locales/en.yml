@@ -30,11 +30,14 @@ en:
   skill:
     create: "Create new skill"
     success: "Added new skill"
+    level: "Level"
+    used_years: "Experience years"
+    empty: "Not have skill."
   show_error: "The form contains"
   admin:
     name: "Admin"
     title: "Admin Management"
-  user:  
+  user:
     name: "Name"
     email: "Email"
     birthday: "Birthday"
@@ -43,3 +46,6 @@ en:
     member: "Member"
     team: "Team"
     not_set: "Not set"
+    basic: "Basic information"
+    skill: "Skill"
+    projects: "Projects"
