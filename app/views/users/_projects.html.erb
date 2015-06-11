@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("name") %></th>
+      <th><%= t("abbreviation") %></th>
+      <th><%= t("start_date") %></th>
+      <th><%= t("end_date") %></th>
+      <th><%= t("project.status") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @user.projects.empty? %>
+      <tr>
+        <td><%= t("project.empty") %></td>
+      </tr>
+    <% else %>
+      <% @user.project_users.each do |project_user| %>
+        <tr class="<%= get_row_class_of_table project_user %>">
+          <td><%= link_to project_user.project_name, project_path(project_user.project) %></td>
+          <td><%= project_user.project_abbreviation %></td>
+          <td><%= project_user.project_start_date %></td>
+          <td><%= project_user.project_end_date %></td>
+          <td><%= project_user.status %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
