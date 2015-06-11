@@ -4,4 +4,10 @@ module UserHelper
       "active"
     end
   end
+
+  def get_row_class_of_table project_user
+    if project_user.status == Settings.project.status.doing
+      "active"
+    end
+  end
 end

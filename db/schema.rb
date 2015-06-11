@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610075447) do
+ActiveRecord::Schema.define(version: 20150611042511) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "time"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20150610075447) do
   create_table "project_users", force: :cascade do |t|
     t.integer  "project_id", limit: 4
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "status",     limit: 255
   end
 
   add_index "project_users", ["project_id"], name: "index_project_users_on_project_id", using: :btree

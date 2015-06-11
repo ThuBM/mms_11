@@ -49,3 +49,6 @@ en:
     basic: "Basic information"
     skill: "Skill"
     projects: "Projects"
+  project:
+    empty: "Not have project."
+    status: "Status"

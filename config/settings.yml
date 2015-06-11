@@ -1,0 +1,4 @@
+project:
+  status:
+    doing: "Doing"
+    completed: "Completed"
