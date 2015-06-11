@@ -34,3 +34,12 @@ en:
   admin:
     name: "Admin"
     title: "Admin Management"
+  user:  
+    name: "Name"
+    email: "Email"
+    birthday: "Birthday"
+    role: "Role"
+    admin: "Admin"
+    member: "Member"
+    team: "Team"
+    not_set: "Not set"
