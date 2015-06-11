@@ -1,0 +1,40 @@
+<table class="table col-md-6">
+  <tr>
+    <td><%= t("user.name") %></td>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td><%= t("user.email") %></td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td><%= t("user.role") %></td>
+    <td><%=
+      if @user.role.nil?
+        t("user.not_set")
+      else
+        @user.role
+      end
+    %></td>
+  </tr>
+  <tr>
+    <td><%= t("user.birthday") %></td>
+    <td><%=
+      if @user.birthday.nil?
+        t("not_set")
+      else 
+        @user.birthday
+      end
+    %></td>
+  </tr>
+  <tr>
+    <td><%= t("user.team") %></td>
+    <td><%=
+      if @team.nil?
+        t("not_set")
+      else
+        @team.name
+      end
+    %></td>
+  </tr>
+</table>

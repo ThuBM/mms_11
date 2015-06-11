@@ -1,0 +1,24 @@
+<table class="table col-md-6">
+  <thead>
+    <tr>
+      <th><%= t("name") %></th>
+      <th><%= t("skill.level") %></th>
+      <th><%= t("skill.used_years") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @user.user_skills.empty? %>
+      <tr>
+        <td><%= t("skill.empty") %></td>
+      </tr>
+    <% else %>
+      <% @user.user_skills.each do |us| %>
+        <tr>
+          <td><%= us.skill.name %></td>
+          <td><%= us.level %></td>
+          <td><%= us.used_years %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

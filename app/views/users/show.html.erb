@@ -1,42 +1,24 @@
 <div class="col-md-12">
-  <table class="table col-md-6">
-    <tr>
-      <td><%= t("user.name") %></td>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <td><%= t("user.email") %></td>
-      <td><%= @user.email %></td>
-    </tr>
-    <tr>
-      <td><%= t("user.role") %></td>
-      <td><%=
-        if @user.role.nil?
-          t("user.not_set")
-        else
-          @user.role
-        end
-      %></td>
-    </tr>
-    <tr>
-      <td><%= t("user.birthday") %></td>
-      <td><%=
-        if @user.birthday.nil?
-          t("not_set")
-        else 
-          @user.birthday
-        end %>
-      </td>
-    </tr>
-    <tr>
-      <td><%= t("user.team") %></td>
-      <td><%=
-        if @team.nil?
-          t("not_set")
-        else
-          @team.name
-        end
-      %></td>
-    </tr>
-  </table>
+  <div id="user-info-navigation" class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="<%= get_navigation_class t("user.basic"), params[:page] %>">
+        <%= link_to t("user.basic"), user_path(@user) %>
+      </li>
+      <li class="<%= get_navigation_class t("user.skill"), params[:page] %>">
+        <%= link_to t("user.skill"), user_path(@user, page: t("user.skill")) %>
+      </li>
+      <li class="<%= get_navigation_class t("user.projects"), params[:page] %>">
+        <%= link_to t("user.projects"), user_path(@user, page: t("user.projects")) %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <% if params[:page] == t("user.skill") %>
+      <%= render "skill" %>
+    <% elsif params[:page] == t("user.projects") %>
+      <%= render "projects" %>
+    <% else %>
+      <%= render "basic" %>
+    <% end %>
+  </div>
 </div>
