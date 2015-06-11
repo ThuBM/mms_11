@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "ordinal" %></th>
+      <th><%= t "team.name" %></th>
+      <th><%= t "team.members_count" %></th>
+      <th><%= t "team.leader" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @teams.empty? %>
+      <tr>
+        <td><%= t "team.empty" %></td>
+      </tr>
+    <% else %>
+      <%= render partial: "team", collection: @teams %>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>

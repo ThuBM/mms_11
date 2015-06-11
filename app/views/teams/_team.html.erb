@@ -1,0 +1,8 @@
+<tr>
+  <td><%= team_counter + 1 %></td>
+  <td><%= link_to team.name, team_path(team) %></td>
+  <td><%= team.members.count %></td>
+  <td>
+    <%= link_to team.leader.name, user_path(team.leader) unless team.leader.nil? %>
+  </td>
+</tr>
