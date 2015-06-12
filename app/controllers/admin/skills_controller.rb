@@ -10,11 +10,35 @@ class Admin::SkillsController < Admin::AdminController
   def create
     @skill = Skill.create skill_params
     if @skill.save
-      flash[:success] = t("skill.success")
+      flash[:success] = t "skill.success"
       redirect_to [:admin, @skill]
     else
       render "new"
     end
+  end
+
+  def index
+    @skills = Skill.paginate page: params[:page]
+  end
+
+  def edit
+    @skill = Skill.find params[:id]
+  end
+
+  def update
+    @skill = Skill.find params[:id]
+    if @skill.update_attributes skill_params
+      flash[:success] = t "skill.update"
+      redirect_to [:admin, @skill]
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    Skill.find(params[:id]).destroy
+    flash[:success] = t "skill.delete"
+    redirect_to admin_skills_url
   end
 
   private
