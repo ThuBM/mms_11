@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboard#show"
     resources :skills
+    resources :positions
   end
 
-  resources :users, only: [:show]
-  resources :projects, only: [:show]
+  resources :users, only: :show
+  resources :projects, only: :show
   resources :teams, only: [:index, :show]
 end

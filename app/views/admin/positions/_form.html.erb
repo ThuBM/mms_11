@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @position] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.label :abbreviation %>
+        <%= f.text_field :abbreviation, class: "form-control" %>
+      </p>
+      <%= f.submit t("position.done"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
