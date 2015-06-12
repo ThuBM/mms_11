@@ -1,0 +1,7 @@
+<% provide :title, t("position.index") %>
+<h1><%= t "position.index" %></h1>
+<%= will_paginate %>
+<div class="list-group">
+  <%= render partial: "position", collection: @positions %>
+</div>
+<%= will_paginate %>

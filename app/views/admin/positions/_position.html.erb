@@ -1,0 +1,5 @@
+<li class="list-group-item">
+  <%= link_to position.name, admin_position_path(position) %>
+  |<%= link_to t("position.edit_link"), edit_admin_position_path(position) %>
+  |<%= link_to t("position.delete_link"), admin_position_path(position), method: :delete, data: {confirm: t("position.confirm")} %>
+</li>
