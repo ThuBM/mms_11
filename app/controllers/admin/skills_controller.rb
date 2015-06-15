@@ -10,8 +10,7 @@ class Admin::SkillsController < Admin::AdminController
   def create
     @skill = Skill.create skill_params
     if @skill.save
-      flash[:success] = t "skill.success"
-      redirect_to [:admin, @skill]
+      render json: @skill
     else
       render "new"
     end

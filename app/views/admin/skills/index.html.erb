@@ -1,7 +1,5 @@
 <% provide :title, t("skill.index") %>
 <h1><%= t "skill.index" %></h1>
 <%= will_paginate %>
-<div class="list-group">
-  <%= render @skills %>
-</div>
+<%= react_component "Skills", {data: @skills} %>
 <%= will_paginate %>
