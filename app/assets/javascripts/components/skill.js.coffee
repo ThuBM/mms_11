@@ -1,5 +1,67 @@
 @Skill = React.createClass
-  render: ->
+  getInitialState: ->
+    edit: false
+
+  handleToggle: (e) ->
+    e.preventDefault()
+    @setState edit: !@state.edit
+
+  handleEdit: (e) ->
+    e.preventDefault()
+    data =
+      name: React.findDOMNode(@refs.name).value
+    $.ajax
+      method: 'PUT'
+      url: "/admin/skills/#{@props.skill.id}"
+      dataType: 'JSON'
+      data:
+        skill: data
+      success: (data) =>
+        @setState edit: false
+        @props.handleEditSkill @props.skill, data
+
+  handleDelete: (e) ->
+    e.preventDefault()
+    $.ajax
+      method: 'DELETE'
+      url: "/admin/skills/#{@props.skill.id}"
+      dataType: 'JSON'
+      success: () =>
+        @props.handleDeleteSkill @props.skill
+
+  skillDefault: ->
     React.DOM.div
       className: 'list-group-item'
       @props.skill.name
+      React.DOM.a
+        className: 'btn btn-default'
+        onClick: @handleToggle
+        "Edit"
+      React.DOM.a
+        className: 'btn btn-danger'
+        onClick: @handleDelete
+        I18n.t("home")
+  
+  skillForm: ->
+    React.DOM.div
+      className: 'skills'
+      React.DOM.input
+        className: 'form-control'
+        type: 'text'
+        defaultValue: @props.skill.name
+        ref: 'name'
+      React.DOM.a
+        className: 'btn btn-default'
+        onClick: @handleEdit
+        'Update'
+      React.DOM.a
+        className: 'btn btn-danger'
+        onClick: @handleToggle
+        'Cancel'
+
+  render: ->
+    if @state.edit
+      @skillForm()
+    else
+      @skillDefault()
+           
