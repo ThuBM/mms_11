@@ -25,7 +25,7 @@
         React.DOM.input
           type: 'text'
           className: 'form-control'
-          placeholder: 'Name'
+          placeholder: I18n.t "skill.text_default"
           name: 'name'
           value: @state.name
           onChange: @handleChange
@@ -33,4 +33,4 @@
         type: 'submit'
         className: 'btn btn-primary'
         disabled: !@valid()
-        'Create skill'
+        I18n.t "skill.create"

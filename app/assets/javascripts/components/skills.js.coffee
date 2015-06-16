@@ -23,12 +23,12 @@
     React.DOM.div
       className: 'skills'
       React.DOM.h2
-        'SKILLs'
+        I18n.t "skill.title"
         React.createElement SkillForm, handleNewSkill: @addSkill
         React.DOM.hr null
       React.DOM.li
         className: 'title'
-        'Skills'
+        I18n.t "skill.index"
         for skill in @state.skills
           React.createElement Skill, 
             key: skill.id,
