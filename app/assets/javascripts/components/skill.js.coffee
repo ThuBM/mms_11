@@ -36,12 +36,12 @@
       React.DOM.a
         className: 'btn btn-default'
         onClick: @handleToggle
-        "Edit"
+        I18n.t "skill.edit_link"
       React.DOM.a
         className: 'btn btn-danger'
         onClick: @handleDelete
-        I18n.t("home")
-  
+        I18n.t "skill.delete_link"
+
   skillForm: ->
     React.DOM.div
       className: 'skills'
@@ -53,11 +53,11 @@
       React.DOM.a
         className: 'btn btn-default'
         onClick: @handleEdit
-        'Update'
+        I18n.t "skill.update"
       React.DOM.a
         className: 'btn btn-danger'
         onClick: @handleToggle
-        'Cancel'
+        I18n.t "skill.cancel"
 
   render: ->
     if @state.edit
