@@ -34,6 +34,3 @@
         className: 'btn btn-primary'
         disabled: !@valid()
         'Create skill'
-
-
-

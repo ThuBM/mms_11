@@ -20,15 +20,10 @@ class Admin::SkillsController < Admin::AdminController
     @skills = Skill.paginate page: params[:page]
   end
 
-  def edit
-    @skill = Skill.find params[:id]
-  end
-
   def update
     @skill = Skill.find params[:id]
     if @skill.update_attributes skill_params
-      flash[:success] = t "skill.update"
-      redirect_to [:admin, @skill]
+      render json: @skill
     else
       render "edit"
     end
@@ -36,8 +31,7 @@ class Admin::SkillsController < Admin::AdminController
 
   def destroy
     Skill.find(params[:id]).destroy
-    flash[:success] = t "skill.delete"
-    redirect_to admin_skills_url
+    head :no_content
   end
 
   private
