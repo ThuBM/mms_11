@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611042511) do
+ActiveRecord::Schema.define(version: 20150624032741) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "time"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20150611042511) do
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "user_id",     limit: 4
   end
+
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -121,6 +124,7 @@ ActiveRecord::Schema.define(version: 20150611042511) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "activities", "users"
   add_foreign_key "project_users", "projects"
   add_foreign_key "project_users", "users"
   add_foreign_key "projects", "teams"

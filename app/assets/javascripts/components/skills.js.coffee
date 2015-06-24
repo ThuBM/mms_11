@@ -10,9 +10,9 @@
     @setState skills: skills
 
   deleteSkill: (skill) ->
-      index = @state.skills.indexOf skill
-      skills = React.addons.update(@state.skills, {$splice: [[index, 1]]})
-      @replaceState skills: skills
+    index = @state.skills.indexOf skill
+    skills = React.addons.update(@state.skills, {$splice: [[index, 1]]})
+    @replaceState skills: skills
 
   updateSkill: (skill, data) ->
     index = @state.skills.indexOf skill
@@ -30,7 +30,7 @@
         className: 'title'
         I18n.t "skill.index"
         for skill in @state.skills
-          React.createElement Skill, 
+          React.createElement Skill,
             key: skill.id,
             skill: skill,
             handleDeleteSkill: @deleteSkill,

@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  before_action :getUser, only: [:edit, :update, :show]
+class Admin::UsersController < Admin::AdminController
+  before_action :getUser, only: [:update, :show]
 
   def index
     @users = User.paginate page: params[:page],
@@ -15,6 +15,12 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.create user_params
+    if @user.save
+      render json: @user
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -22,18 +28,20 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      redirect_to @user
+      render json: @user
     else
       render "edit"
     end
   end
 
   def destroy
+    User.find(params[:id]).destroy
+    head :no_content
   end
 
   private
   def user_params
-    params.require(:user).permit :name, :password, :password_confirmation, :email
+    params.require(:user).permit :name, :role
   end
 
   def getUser

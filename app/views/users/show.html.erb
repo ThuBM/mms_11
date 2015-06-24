@@ -10,6 +10,9 @@
       <li class="<%= get_navigation_class t("user.projects"), params[:page] %>">
         <%= link_to t("user.projects"), user_path(@user, page: t("user.projects")) %>
       </li>
+      <li class="<%= get_navigation_class t("user.edit"), params[:page] %>">
+        <%= link_to t("user.edit"), edit_user_path(@user) %>
+      </li>
     </ul>
   </div>
   <div class="col-md-9">
