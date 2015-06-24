@@ -6,3 +6,6 @@ team:
   teams_number_per_page: 10
   basic: "basic"
   members: "members"
+action:
+  login: "login"
+  logout: "logout"

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "help" => "static_pages#help"
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "custom_devise/sessions"
+  }
 
   namespace :admin do
     root "dashboard#show"
