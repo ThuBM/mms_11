@@ -48,6 +48,9 @@ en:
     basic: "Basic information"
     skill: "Skill"
     projects: "Projects"
+    edit: "Edit"
+    edit_title: "Edit Profile"
+    edit_save: "Save Change"
   project:
     empty: "Not have project."
     status: "Status"

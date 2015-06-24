@@ -15,6 +15,7 @@ gem "turbolinks"
 gem "i18n-js"
 gem "jbuilder", "~> 2.0"
 gem "react-rails", "~> 1.0"
+gem "factory_girl_rails", "~> 4.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 group :development, :test do

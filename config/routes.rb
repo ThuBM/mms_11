@@ -11,9 +11,10 @@ Rails.application.routes.draw do
     root "dashboard#show"
     resources :skills
     resources :positions
+    resources :users
   end
 
-  resources :users, only: :show
+  resources :users
   resources :projects, only: :show
   resources :teams, only: [:index, :show]
 end
