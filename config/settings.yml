@@ -9,6 +9,9 @@ team:
 action:
   login: "login"
   logout: "logout"
-
 user:
   users_number_per_page: 10
+activity:
+  personal: "personal"
+  all: "all"
+counter: 1
