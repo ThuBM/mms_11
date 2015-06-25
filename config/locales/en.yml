@@ -54,6 +54,19 @@ en:
   project:
     empty: "Not have project."
     status: "Status"
+    leader: "Leader"
+    submit: "Submit"
+    team: "Team"
+    basic_info: "Basic information"
+    name: "Name"
+    enter_name: "Enter name"
+    abbreviation: "Abbreviation"
+    enter_abbreviation: "Enter abbreviation"
+    start_date: "Start date"
+    end_date: "End date"
+    select_members: "Select members"
+    select_teams: "Team"
+    members: "Members"
   team:
     name: "Team name"
     members_count: "Members"
@@ -62,6 +75,8 @@ en:
     members: "Members"
     projects: "Projects"
     empty_members: "Team have 0 member."
+    create: "Create a new team"
+    description: "Description"
   activity:
     all: "All"
     personal: "Personal"
