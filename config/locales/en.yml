@@ -54,6 +54,14 @@ en:
   project:
     empty: "Not have project."
     status: "Status"
+    name: "Name"
+    abbreviation: "Abbreaviation"
+    start_date: "Start date"
+    end_date: "End date"
+    enter_name: "Enter name"
+    enter_abbreviation: "Enter abbreaviation"
+    leader: "Leader"
+    basic_info: "Basic information"
   team:
     name: "Team name"
     members_count: "Members"
