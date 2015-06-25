@@ -1,0 +1,31 @@
+<div class="col-md-12">
+  <div id="user-info-navigation" class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li>
+        <%= link_to t("activity.all"), activities_path(page_info: Settings.activity.all) %>
+      </li>
+      <li>
+        <%= link_to t("activity.personal"), activities_path(page_info: Settings.activity.personal) %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9" id="content">
+    <table class="table">
+      <thead>
+        <tr>
+          <td><%= t "activity.activity" %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @activities.nil? || @activities.empty? %>
+          <tr>
+            <td><%= t "activity.empty" %></td>
+          </tr>      
+        <% else %>
+          <%= render partial: "activity", collection: @activities %>    
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate unless @activities.nil? %>
+  </div>
+</div>

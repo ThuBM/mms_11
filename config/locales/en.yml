@@ -62,3 +62,9 @@ en:
     members: "Members"
     projects: "Projects"
     empty_members: "Team have 0 member."
+  activity:
+    all: "All"
+    personal: "Personal"
+    activity: "Activity"
+    empty: "No have any activities."
+    at: "at"
