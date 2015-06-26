@@ -4,6 +4,18 @@
     abbreviation: ""
     start_date: ""
     end_date: ""
+    team: @props.teams.first
+    users: @props.users
+
+  onTeamChange: (e) ->
+    e.preventDefault()
+    $.ajax
+      url: "/admin/projects"
+      type: "POST"
+      data:
+        team_id: e.target.value
+      success: (data, status, response) ->
+        alert data
 
   render: ->
     React.DOM.form
@@ -74,6 +86,7 @@
           React.DOM.div
             className: "col-md-10"
             React.DOM.select
+              onChange: @onTeamChange
               className: "form-control select"
               name: "team_id"
               for team in @props.teams
@@ -86,5 +99,15 @@
             className: "control-label col-md-2"
             I18n.t "project.members"
           React.DOM.div
-            className: "col-md-10"
-            
+            className: "col-md-10 members-list"
+            React.DOM.table
+              className: "table"
+              for user in @props.users
+                React.DOM.tr null,
+                  React.DOM.td null, user.name
+                  React.DOM.td null,
+                    React.DOM.input
+                      type: "checkbox"
+      React.DOM.button
+        className: "col-md-6 btn btn-primary col-md-offset-3"
+        "Submit"
