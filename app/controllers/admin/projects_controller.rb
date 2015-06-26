@@ -1,6 +1,7 @@
 class Admin::ProjectsController < ApplicationController
   def new
     @project = Project.new
+    @teams = Team.all
   end
 
   def create

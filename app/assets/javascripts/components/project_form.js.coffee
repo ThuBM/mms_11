@@ -4,6 +4,7 @@
     abbreviation: ""
     start_date: ""
     end_date: ""
+
   render: ->
     React.DOM.form
       className: "form-horizontal"
@@ -75,7 +76,15 @@
             React.DOM.select
               className: "form-control select"
               name: "team_id"
-              React.DOM.option
-                key: "1"
-                value: "1"
-        
+              for team in @props.teams
+                React.DOM.option
+                  value: team.id
+                  team.name
+        React.DOM.div
+          className: "form-group"
+          React.DOM.label
+            className: "control-label col-md-2"
+            I18n.t "project.members"
+          React.DOM.div
+            className: "col-md-10"
+            
