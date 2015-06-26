@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :skills
     resources :positions
     resources :users
+    resources :projects
   end
 
   resources :users
