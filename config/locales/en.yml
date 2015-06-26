@@ -62,6 +62,8 @@ en:
     enter_abbreviation: "Enter abbreaviation"
     leader: "Leader"
     basic_info: "Basic information"
+    submit: "Submit"
+    team: "Team"
   team:
     name: "Team name"
     members_count: "Members"

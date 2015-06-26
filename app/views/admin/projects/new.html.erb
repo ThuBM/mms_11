@@ -1,6 +1,6 @@
 <div class="row">
   <%= form_for [:admin, @project] do |f| %>
-    <div class="col-md-4 col-md-offset-2">
+    <div class="col-md-6 col-md-offset-3">
       <h4><%= t "project.basic_info" %></h4>
       <%= f.label t "project.name" %>
       <%= f.text_field :name, class: "form-control" %>
@@ -10,17 +10,39 @@
       <%= f.text_field :start_date, class: "form-control datepicker" %>
       <%= f.label t "project.end_date" %>
       <%= f.text_field :end_date, class: "form-control datepicker" %>
-    </div>
-    <div class="col-md-4">
-      <h4><%= t "team.members" %></h4>
-      <%= f.label t "team.leader" %>
-      <%= f.collection_select :leader_id, User.all, :id, :name, prompt: true %>
+      <%= f.label t "project.team" %>
+      <%= f.collection_select :team, @teams, :id, :name, {prompt: false, include_blank: false}, {onchange: "onSelectTeamChange()"} %>
+      <div id="select-members">
+        <%= f.label t "team.members" %>
+        <div id="show-members-in-team">
+          <% if !@members.nil? %>
+            <%= render partial: "member_form", collection: @members, locals: {f: f} %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.datepicker').datepicker();
+    $(".datepicker").datepicker();
   });
+
+function onSelectTeamChange(){
+  // change collection_check_boxes
+  var team_id = $("#project_team").val();
+  $.ajax({
+    url: "/admin/projects/new",
+    type: "GET",
+    data: {team_id: team_id},
+    context: document.getElementById("show-members-in-team"),
+    success: function(data, status){
+      document.getElementById("show-members-in-team").innerHTML = data;
+    },
+    error: function(){
+      alert("error");
+    }
+  });
+}
 </script>
