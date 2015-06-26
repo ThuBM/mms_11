@@ -3,17 +3,17 @@
     <tr>
       <th><%= t "ordinal" %></th>
       <th><%= t "team.name" %></th>
-      <th><%= t "team.members_count" %></th>
+      <th><%= t "project.abbreviation" %></th>
       <th><%= t "team.leader" %></th>
     </tr>
   </thead>
   <tbody>
-    <% if @teams.empty? %>
+    <% if @projects.empty? %>
       <tr>
-        <td><%= t "team.empty" %></td>
+        <td><%= t "project.empty" %></td>
       </tr>
     <% else %>
-      <%= render partial: "team", collection: @teams %>
+      <%= render @projects %>
     <% end %>
   </tbody>
 </table>
