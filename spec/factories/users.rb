@@ -9,5 +9,5 @@ FactoryGirl.define do
     password "thisispassword"
     password_confirmation "thisispassword"
     role "admin"
-  end  
+  end
 end
