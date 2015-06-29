@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   has_many :skills, through: :user_skills
   has_many :project_users, -> {order(updated_at: :desc)}
   has_many :projects, through: :project_users
-  has_one :team, inverse_of: :leader
+  has_one :team, inverse_of: :leader, foreign_key: "leader_id"
   has_one :project, inverse_of: :leader
 end
