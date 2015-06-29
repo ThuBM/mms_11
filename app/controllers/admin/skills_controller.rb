@@ -12,7 +12,7 @@ class Admin::SkillsController < Admin::AdminController
     if @skill.save
       render json: @skill
     else
-      render "new"
+      render :new
     end
   end
 
@@ -25,7 +25,7 @@ class Admin::SkillsController < Admin::AdminController
     if @skill.update_attributes skill_params
       render json: @skill
     else
-      render "edit"
+      render :edit
     end
   end
 
