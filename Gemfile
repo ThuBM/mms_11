@@ -25,4 +25,6 @@ group :development, :test do
   gem "spring"
   gem "rspec-rails", "~> 3.0"
   gem "factory_girl", "~> 4.5.0"
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers"
 end
