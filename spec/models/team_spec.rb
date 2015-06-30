@@ -6,5 +6,6 @@ describe Team, type: :model do
     it {expect(team).to have_many(:members).through(:user_teams)}
     it {expect(team).to have_many(:user_teams)}
     it {expect(team).to belong_to(:leader).class_name("User").inverse_of(:team)}
+    it {expect(team).to accept_nested_attributes_for(:user_teams)}
   end
 end
