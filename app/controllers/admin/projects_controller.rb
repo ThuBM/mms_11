@@ -1,26 +1,35 @@
-class Admin::ProjectsController < ApplicationController
-  def new
+class Admin::ProjectsController < Admin::AdminController
+  def index
     @project = Project.new
     @teams = Team.all
-    @members = User.all
-    if request.xhr?
-      render json: Team.find_by(params[:team_id]).members
-    end
+  end
+
+  def new
+    @project = Project.new
   end
 
   def create
-    @project = Project.new project_params
-    if @project.save
-      render json: @project
-    else
-      render json: @project.errors, status: :unprocessable_entity
+    if request.xhr?
+      unless params[:is_submit] == "false"
+        params[:project].delete :is_submit
+        @project = Project.new project_params
+        @project.members = Team.find_by(id: params[:project][:team_id]).members
+        if @project.save
+          render json: @project
+        else
+          render json: @project.errors, status: :unprocessable_entity
+        end
+      else
+        @members = Team.find_by(id: params[:team_id]).members
+        render json: @members
+        return
+      end
     end
   end
 
   private
   def project_params
     params.require(:project).permit :id, :name, :abbreviation, :start_date,
-                                    :end_date, :leader_id, :team_id,
-                                    members_attributes: [:id]
+                                    :end_date, :leader_id, :team_id, :is_submit
   end
 end
