@@ -5,6 +5,6 @@ describe Team, type: :model do
     let(:team) {FactoryGirl.build(:team)}
     it {expect(team).to have_many(:members).through(:user_teams)}
     it {expect(team).to have_many(:user_teams)}
-    it {should belong_to(:leader).class_name("User").inverse_of(:team)}
+    it {expect(team).to belong_to(:leader).class_name("User").inverse_of(:team)}
   end
 end
