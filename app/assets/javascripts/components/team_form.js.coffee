@@ -20,19 +20,10 @@
     , 'JSON'
 
   handleDescription: (e) ->
-    e.preventDefault()
     @setState description: e.target.value
 
   onLeaderChange: (e) ->
-    e.preventDefault()
     @setState leader_id: e.target.value
-    $.ajax
-      url: "/admin/teams"
-      type: "POST"
-      data:
-        leader_id: e.target.value
-      success: (data, status, response) ->
-        alert data
 
   onCheckChange: (e) ->
     e.preventDefault()
@@ -70,6 +61,7 @@
           onChange: @handleDescription
         React.DOM.select
           className: "form-control select"
+          onChange: @onLeaderChange
           name: "leader_id"
           for user in @props.users
             React.DOM.option

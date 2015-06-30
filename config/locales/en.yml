@@ -66,7 +66,9 @@ en:
     end_date: "End date"
     select_members: "Select members"
     select_teams: "Team"
+    select_leader: "Leader"
     members: "Members"
+    create: "Create a new project"
   team:
     name: "Team name"
     members_count: "Members"
