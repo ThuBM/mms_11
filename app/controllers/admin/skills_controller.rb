@@ -1,10 +1,6 @@
 class Admin::SkillsController < Admin::AdminController
-  def new
-    @skill = Skill.new
-  end
-
-  def show
-    @skill = Skill.find params[:id]
+  def index
+    @skills = Skill.paginate page: params[:page]
   end
 
   def create
@@ -14,10 +10,6 @@ class Admin::SkillsController < Admin::AdminController
     else
       render :new
     end
-  end
-
-  def index
-    @skills = Skill.paginate page: params[:page]
   end
 
   def update
