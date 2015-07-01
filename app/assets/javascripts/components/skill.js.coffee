@@ -53,7 +53,7 @@
       React.DOM.a
         className: 'btn btn-default'
         onClick: @handleEdit
-        I18n.t "skill.update"
+        I18n.t "skill.update_link"
       React.DOM.a
         className: 'btn btn-danger'
         onClick: @handleToggle
