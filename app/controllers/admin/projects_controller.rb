@@ -10,10 +10,9 @@ class Admin::ProjectsController < Admin::AdminController
 
   def create
     if request.xhr?
-      unless params[:is_submit] == "false"
-        params[:project].delete :is_submit
+      unless params[:is_submit] == false
         @project = Project.new project_params
-        @project.members = Team.find_by(id: params[:project][:team_id]).members
+        @project.members = @project.team.members unless @project.team.nil?
         if @project.save
           render json: @project
         else
@@ -30,6 +29,6 @@ class Admin::ProjectsController < Admin::AdminController
   private
   def project_params
     params.require(:project).permit :id, :name, :abbreviation, :start_date,
-                                    :end_date, :leader_id, :team_id, :is_submit
+                                    :end_date, :leader_id, :team_id
   end
 end
